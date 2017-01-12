@@ -67,22 +67,22 @@ type public GuildedRose() =
     
     member public __.UpdateQuality(inventory) = 
         inventory |> Array.map (fun item -> 
-                         let allowedQualityRange i = 
+                         let aqr i = 
                             max (min (item.Quality + i) 50) 0 
-                         let standardItem = 
+                         let si = 
                              { item with Sellin = item.Sellin - 1
-                                         Quality = allowedQualityRange -1 }
-                         let customItem i = {standardItem with Quality = allowedQualityRange i}
+                                         Quality = aqr -1 }
+                         let ci i = {si with Quality = aqr i}
 
                          match (item.Name, item.Sellin) with
                          | (Sulfuras, _) -> { item with Quality = 80 }
-                         | (AgedBrie, s) when s <= 0 -> customItem 2
-                         | (AgedBrie, _) -> customItem 1
-                         | (ConjuredManaCake, s) when s <= 0 -> customItem -4
-                         | (ConjuredManaCake, _) -> customItem -2
-                         | (BackstagePasses, s) when s > 10 -> customItem 1
-                         | (BackstagePasses, s) when s > 5 -> customItem 2
-                         | (BackstagePasses, s) when s > 0 -> customItem 3
-                         | (BackstagePasses, _) -> { standardItem with Quality = 0 }
-                         | (_, s) when s <= 0 -> customItem -2
-                         | (_, _) -> standardItem)
+                         | (AgedBrie, s) when s <= 0 -> ci 2
+                         | (AgedBrie, _) -> ci 1
+                         | (ConjuredManaCake, s) when s <= 0 -> ci -4
+                         | (ConjuredManaCake, _) -> ci -2
+                         | (BackstagePasses, s) when s > 10 -> ci 1
+                         | (BackstagePasses, s) when s > 5 -> ci 2
+                         | (BackstagePasses, s) when s > 0 -> ci 3
+                         | (BackstagePasses, _) -> { si with Quality = 0 }
+                         | (_, s) when s <= 0 -> ci -2
+                         | (_, _) -> si)
