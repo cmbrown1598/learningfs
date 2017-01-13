@@ -4,7 +4,7 @@ open LearningFs
 open Xunit
 
 let sut = new GuildedRose()
-
+[<Literal>]
 let item1 = "item1"
 
 [<Fact>]
