@@ -69,9 +69,11 @@ type public GuildedRose() =
         inventory |> Array.map (fun item -> 
                          let aqr i = 
                             max (min (item.Quality + i) 50) 0 
+
                          let si = 
                              { item with Sellin = item.Sellin - 1
                                          Quality = aqr -1 }
+
                          let ci i = {si with Quality = aqr i}
 
                          match (item.Name, item.Sellin) with
