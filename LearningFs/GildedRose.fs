@@ -31,7 +31,7 @@ type public GuildedRose() =
              Quality = 6 } |]
     
     member public __.UpdateQuality(inventory) = 
-        inventory |> Array.map (fun item -> 
+        inventory |> Array.Parallel.map (fun item -> 
                          let aqr i = 
                             max (min (item.Quality + i) 50) 0 
 

@@ -52,8 +52,8 @@
     <Compile Include="GildedRose.fs" />
     <None Include="App.config" />
     <Compile Include="FizzBuzz.fs" />
-    <Compile Include="Program.fs" />
     <Compile Include="Listastic.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
