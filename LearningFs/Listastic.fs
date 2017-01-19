@@ -21,7 +21,6 @@ let rev list =
         | a::b::tail -> 
             loop tail [b;a]
 
-
     
     
 
