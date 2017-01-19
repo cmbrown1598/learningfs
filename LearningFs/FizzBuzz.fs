@@ -8,7 +8,7 @@ let (|DivisibleByThree|DivisibleByFive|DivisibleByBoth|Normal|) i =
     else if (i % 5) = 0 then DivisibleByFive
     else if (i % 3) = 0 then DivisibleByThree
     else Normal
-
+     
 
 let fizzBuzz = 
     [ 1 .. 100 ]

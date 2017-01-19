@@ -10,6 +10,7 @@ type SomeType(value1 : int, value2 : float, flag : bool) =
     member this.Flag = flag
     member this.ComputedValue = (float)value1 * value2
 
+     
 
 type ITPerson = 
     | Programmer of FirstName : string * LastName : string * WritesTests : bool
