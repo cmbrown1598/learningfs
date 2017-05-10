@@ -9,8 +9,10 @@ let item1 = "item1"
 
 [<Fact>]
 let `` Quality and sellin is decreased on normal items.``() =
-    let results = sut.UpdateQuality([|{ Name = item1; Sellin=5; Quality = 5; }|])
-    Assert.Equal({ Name = item1; Sellin=4; Quality = 4; }, results.[0])
+    let item = { Name = item1; Sellin=5; Quality = 5; }
+    let results = sut.UpdateQuality([|item|])
+
+    Assert.Equal({ item with Sellin=4; Quality=4  }, results.[0])
 
 [<Fact>]
 let `` Once the sell by date has passed, Quality degrades twice as fast.``() =

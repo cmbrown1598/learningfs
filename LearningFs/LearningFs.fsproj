@@ -51,8 +51,12 @@
     <Compile Include="Constants.fs" />
     <Compile Include="GildedRose.fs" />
     <None Include="App.config" />
+    <Compile Include="Factorize.fs" />
     <Compile Include="FizzBuzz.fs" />
     <Compile Include="Listastic.fs" />
+    <Compile Include="Movement.fs" />
+    <Compile Include="Measures.fs" />
+    <Compile Include="Softball.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>

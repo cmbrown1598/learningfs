@@ -3,6 +3,12 @@
 module Program
 
 
+let greet name = 
+    match System.DateTime.Now.Hour with
+    | hr when hr < 12 -> sprintf "Good morning %s!" name
+    | hr when hr < 17 -> sprintf "Good afternoon %s!" name
+
+
 
 type SomeType(value1 : int, value2 : float, flag : bool) = 
     member this.Value1 = value1
@@ -38,8 +44,9 @@ open System;
 open System.IO;
 
 let m = seq {
-                let f = File.OpenRead "C:\Users\christob\Downloads\crawler.js" 
+                use f = File.OpenRead "C:\Users\christob\Downloads\crawler.js" 
                 for m in 1L..f.Length -> f.ReadByte
+                f.Close() |> ignore
         }
      
 let n = Seq.initInfinite (fun int -> int);;
@@ -49,6 +56,8 @@ Seq.skip 1000 n;;
 let main argv = 
     let a = Seq.length m
     Console.WriteLine ( String.Format ("{0} is the file's length.", a) )
+
+     
 
     Console.ReadLine() |> ignore 
     0 // return an integer exit code
